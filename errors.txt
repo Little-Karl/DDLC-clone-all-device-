@@ -2,7 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 17: indentation mismatch.
+File "game/script.rpy", line 42: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Tue May  4 17:49:57 2021
+Tue May  4 19:11:44 2021
