@@ -220,6 +220,63 @@ init python:
 # defined player also means mc (main charactor) in story script
 define player = "test_subject no.1"
 
+
+
+## transsititions ##############################################################
+##
+## This section controls all transformations in the game
+
+###########
+# effects #
+###########
+define dissolve_scene_full = MultipleTransition([
+    False, Dissolve(1.0),
+    Solid("#000"), Pause(1.0),
+    Solid("#000"), Dissolve(1.0),
+    True])
+
+
+##############
+# transforms #
+##############
+
+#tcommon
+transform tcommon(x=640, z=0.80):
+    yanchor 1.0 subpixel True
+    on show:
+        ypos 1.03
+        zoom z*0.95 alpha 0.00
+        xcenter x yoffset -20
+        easein .25 yoffset 0 zoom z*1.00 alpha 1.00
+    on replace:
+        alpha 1.00
+        parallel:
+            easein .25 xcenter x zoom z*1.00
+        parallel:
+            easein .15 yoffset 0 ypos 1.03
+# redefine it as 1 letter with number, make life easier
+transform t11:
+    tcommon(640)
+
+# sink
+transform sink(x=640, z=0.80):
+    xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
+    easein .5 ypos 1.06
+# redefine it as 1 letter with number, make life easier
+transform s11:
+    sink(640)
+
+# thide
+transform thide(z=0.80):
+    subpixel True
+    transform_anchor True
+    on hide:
+        easein .25 zoom z*0.95 alpha 0.00 yoffset -20
+
+
+
+
+
 ## definitions #################################################################
 ##
 ## This section controls all the definitions in the game to make life easier.
@@ -267,9 +324,10 @@ define n = DynamicCharacter('n_name', image='natsuki', what_prefix='"', what_suf
 define y = DynamicCharacter('y_name', image='yuri', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 define ny = Character('Nat & Yuri', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 
-#########################
-# charactor composition #
-#########################
+
+##############################
+# charactor composit rigging #
+##############################
 # Sayori
 image sayori 1 = im.Composite((960, 960), (0, 0), "sayori/1l.png", (0, 0), "sayori/1r.png", (0, 0), "sayori/a.png")
 image sayori 1a = im.Composite((960, 960), (0, 0), "sayori/1l.png", (0, 0), "sayori/1r.png", (0, 0), "sayori/a.png")
@@ -495,56 +553,3 @@ image sayori glitch:
     "sayori/glitch2.png"
     pause 0.01666
     repeat
-
-
-
-## transsititions ##############################################################
-##
-## This section controls all transformations in the game
-
-###########
-# effects #
-###########
-define dissolve_scene_full = MultipleTransition([
-    False, Dissolve(1.0),
-    Solid("#000"), Pause(1.0),
-    Solid("#000"), Dissolve(1.0),
-    True])
-
-
-##############
-# transforms #
-##############
-
-#tcommon
-transform tcommon(x=640, z=0.80):
-    yanchor 1.0 subpixel True
-    on show:
-        ypos 1.03
-        zoom z*0.95 alpha 0.00
-        xcenter x yoffset -20
-        easein .25 yoffset 0 zoom z*1.00 alpha 1.00
-    on replace:
-        alpha 1.00
-        parallel:
-            easein .25 xcenter x zoom z*1.00
-        parallel:
-            easein .15 yoffset 0 ypos 1.03
-# redefine it as 1 letter with number, make life easier
-transform t11:
-    tcommon(640)
-
-# sink
-transform sink(x=640, z=0.80):
-    xcenter x yoffset 0 yanchor 1.0 ypos 1.03 zoom z*1.00 alpha 1.00 subpixel True
-    easein .5 ypos 1.06
-# redefine it as 1 letter with number, make life easier
-transform s11:
-    sink(640)
-
-# thide
-transform thide(z=0.80):
-    subpixel True
-    transform_anchor True
-    on hide:
-        easein .25 zoom z*0.95 alpha 0.00 yoffset -20

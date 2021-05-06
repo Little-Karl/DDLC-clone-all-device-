@@ -80,24 +80,33 @@ label ch0:
     mc "I told you already, I'm really not interested in joining any clubs."
     mc "I haven't been looking, either."
 
-# 4h
-    show sayori 4j at s11
+# switch the position
+    show sayori 4h at s11
     s "Eh? That's not true!"
     s "You told me you would join a club this year!"
     mc "Did I...?"
     "I'm sure it's possible that I did, in one of our many conversations where I dismissively go along with whatever she's going on about."
     "Sayori likes to worry a little too much about me, when I'm perfectly content just getting by on the average while spending my free time on games and anime."
+# switch expression to something barely noticable
     s 4j "Uh-huh!"
     s "I was talking about how I'm worried that you won't learn how to socialize or have any skills before college."
     s "Your happiness is really important to me, you know!"
     s "And I know you're happy now, but I'd die at the thought of you becoming a NEET in a few years because you're not used to the real world!"
+# change it again
     s 4g "You trust me, right?"
     s "Don't make me keep worrying about you..."
     mc "Alright, alright..."
     mc "I'll look at a few clubs if it makes you happy."
     mc "No promises, though."
+# change lar and face
     s 1h "Will you at least promise me you'll try a little?"
     mc "Yeah, I guess I'll promise you that."
+# move the charactor up and change to YYYAAAYYY sayori
+    show sayori 4r at t11
+    s "Yaay~!"
+    "Why do I let myself get lectured by such a carefree girl?"
+    "More than that, I'm surprised I even let myself relent to her."
+    "I guess seeing her worry so much about me makes me want to ease her mind at least a little bit - even if she does exaggerate everything inside of her head."
 
 
 
