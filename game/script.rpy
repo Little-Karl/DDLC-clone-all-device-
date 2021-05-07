@@ -1,30 +1,34 @@
-﻿label start:
+﻿# READ BEFORE BRAGING ABOUT NOT ABLE TO FIND ANYTHING IN THE CODE
+# All parmairtors(s, y, n, m, mc, music, residental, bgm2) are defined in parm.rpy 
 
-# define name dow now?
-# yes it helps later but 
-# at the start?
+# label start: is what the enginge will look for when the game launches and starts here  
+label start:
+    # naming before the story starts
     $ s_name = "???"
     $ y_name = "Girl 1"
     $ n_name = "Girl 2"
     $ m_name = "Girl 3"
 
-# call chapter 0 (real story start)
+    # teleport to lable ch0
     call ch0 
+
+# tell the enginge this is the end of this lable
 return
 
-label ch0:
-# stop music with fadeout 2 seconds
-    stop music fadeout 2.0
-# setup scene bg residental with desolve effect
-    scene bg residential with dissolve_scene_full
-# in the definition section in the options.rpy
-# c2 is being defined as audio.bgm2
-    play music bgm2
 
-# story start 
-# s is the charactor name, 
-# and it's curently defined as ???
+
+# tell the enginge this the the ch0 section
+label ch0:
+# scene setup (residental)
+    # use residential scene with transistion "dissolve_scene_full"
+    scene bg residential with dissolve_scene_full
+    # Start playing the story background music bgm2
+    play music bgm2
+    # end of scene setup
+
+# Use S at the front of the dialogue to define the sayer of that dialogue
     s "Heeeeeeeyyy!!"
+    # lines without sayer defined(blank) will defaulted as narrator
     "I see an annoying girl running toward me from the distance, waving her arms in the air like she's totally oblivious to any attention she might draw to herself."
     "That girl is Sayori, my neighbor and good friend since we were children."
     "You know, the kind of friend you'd never see yourself making today, but it just kind of works out because you've known each other for so long?"
@@ -32,82 +36,145 @@ label ch0:
     "But if she's going to chase after me like this, I almost feel better off running away."
     "However, I just sigh and idle in front of the crosswalk and let Sayori catch up to me."
 
-# lable s_name as Sayori. 
-# This will also labe s as sayori 
-# Since sayori is about to show herself
+# change the S sayer to Sayori
     $ s_name = "Sayori"
 
-# define where to place the girl sayori on the next sayori line
-    show sayori 4p at t11
-# only have to define "s 4p" once
-# the rest will cary on, 
-# unless in one of the line have a charactor expression change
-    s "Haaahhh...haaahhh..."
+# show sayori at positions "t1"
+    show sayori at t1
+    # the "4p" next to s is the body expressions and type
+    s 4p "Haaahhh...haaahhh..."
     s "I overslept again!"
     s "But I caught you this time!"
+    # mc is the player themself
+    # yes forcing words into your mouth.
     mc "Maybe, but only because I decided to stop and wait for you."
 
-# will look at it again
-    show sayori 5c at s11
-# story continues
-    s "Eeehhhhh, you say that like you were thinking about ignoring me!"
+# change sayori positions from "t1" to "s1" on the next dialogue line
+    show sayori at s1
+    # change sayori body from "4p" to "5c"
+    s 5c "Eeehhhhh, you say that like you were thinking about ignoring me!"
+    # [] is a definitions showing box, it can be anyhting as long as it's defined
     s "That's mean, [player]!"
     mc "Well, if people stare at you for acting weird then I don't want them to think we're a couple or something."
 
-# change sayory body to 1a
-    show sayori 1a at t11
-# story continues
-    s "Fine, fine."
+# change sayori positions to "t1" 
+    show sayori at t1
+    #
+    s 1a "Fine, fine."
     s "But you did wait for me, after all."
     s "I guess you don't have it in you to be mean even if you want to~"
     mc "Whatever you say, Sayori..."
-# the next dialogue line changed sayori appearence to 1q instead of 1a
+    # this is a clean body type change without any effect
     s 1q "Ehehe~"
 
-# make sayori body hide like it's fading away? Kind of
+# make sayori body hide like it's fading away with "thide"
     show sayori at thide
-# hide the girl
+    # hide the charactor 
     hide sayori
-# more dialogue
+    #
     "We cross the street together and make our way to school."
     "As we draw near, the streets become increasingly speckled with other students making their daily commute."
 
-# show sayori again on the next sayori dialogue
-    show sayori 3a at t11
-    s "By the way, [player]..."
+# 39
+    show sayori at t1
+    s 3a "By the way, [player]..."
     s "Have you decided on a club to join yet?"
     mc "A club?"
     mc "I told you already, I'm really not interested in joining any clubs."
     mc "I haven't been looking, either."
 
-# switch the position
-    show sayori 4h at s11
-    s "Eh? That's not true!"
+# 45
+    show sayori at s1
+    #
+    s 4h "Eh? That's not true!"
     s "You told me you would join a club this year!"
     mc "Did I...?"
     "I'm sure it's possible that I did, in one of our many conversations where I dismissively go along with whatever she's going on about."
     "Sayori likes to worry a little too much about me, when I'm perfectly content just getting by on the average while spending my free time on games and anime."
-# switch expression to something barely noticable
+    #
     s 4j "Uh-huh!"
     s "I was talking about how I'm worried that you won't learn how to socialize or have any skills before college."
     s "Your happiness is really important to me, you know!"
     s "And I know you're happy now, but I'd die at the thought of you becoming a NEET in a few years because you're not used to the real world!"
-# change it again
+    #
     s 4g "You trust me, right?"
     s "Don't make me keep worrying about you..."
     mc "Alright, alright..."
     mc "I'll look at a few clubs if it makes you happy."
     mc "No promises, though."
-# change lar and face
+    #
     s 1h "Will you at least promise me you'll try a little?"
     mc "Yeah, I guess I'll promise you that."
-# move the charactor up and change to YYYAAAYYY sayori
-    show sayori 4r at t11
-    s "Yaay~!"
+
+# 62
+    show sayori at t1
+    #
+    s 4r "Yaay~!"
     "Why do I let myself get lectured by such a carefree girl?"
     "More than that, I'm surprised I even let myself relent to her."
     "I guess seeing her worry so much about me makes me want to ease her mind at least a little bit - even if she does exaggerate everything inside of her head."
 
+# scene setup (classroom)
+    scene bg classroom with wipeleft_scene
+    # end of screen setup
+
+# 71
+    "The school day is as ordinary as ever, and it's over before I know it."
+    "After I pack up my things, I stare blankly at the wall, looking for an ounce of motivation."
+    #
+    mc "Clubs..."
+    "Sayori wants me to check out some clubs."
+    "I guess I have no choice but to start with the anime club..."
+    # show sayori charactor, just dialogue
+    # since it's a new scene
+    s "Hellooo?"
+
+# 77
+    show sayori 1b at t1
+    #
+    mc "Sayori...?"
+    "Sayori must have come into the classroom while I was spacing out."
+    "I look around and realize that I'm the only one left in the classroom."
+    #
+    s 1a "I thought I'd catch you coming out of the classroom, but I saw you just sitting here and spacing out, so I came in."
+    s "Honestly, you're even worse than me sometimes... I'm impressed!"
+    mc "You don't need to wait up for me if it's going to make you late to your own club."
+    #
+    s 1y "Well, I thought you might need some encouragement, so I thought, you know..."
+    mc "Know what?"
+    #
+    s 1a "Well, that you could come to my club!"
+    mc "Sayori..."
+    #
+    s 4r "Yeah??"
+    mc "...There is no way I'm going to your club."
+
+# 90
+    show sayori at s1
+    #
+    s 5d "Eeeehhhhh?! Meanie!"
+    "Sayori is vice president of the Literature Club."
+    "Not that I was ever aware that she had any interest in literature."
+    "In fact, I'm 99%% sure she only did it because she thought it would be fun to help start a new club."
+    "Since she was the first one to show interest after the one who proposed the club, she inherited the title \"Vice President\"."
+    "That said, my interest in literature is guaranteed to be even less."
+    mc "Yeah. I'm going to the anime club."
+
+# 98
+    show sayori at t1
+    #
+    s 1g "C'mon, please?"
+    mc "Why do you care so much, anyway?"
+    #
+    s 5b "Well..."
+    s "I kind of told the club yesterday I would bring in a new member..."
+    s "And Natsuki made cupcakes and everything..."
+    s "Ehehe..."
+    mc "Don't make promises you can't keep!"
+    "I can't tell if Sayori is really that much of an airhead, or if she's so cunning as to have planned all of this out."
+    "I let out a long sigh."
+    mc "Fine... I'll stop by for a cupcake, okay?"
+    
 
 
 return

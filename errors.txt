@@ -2,7 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 42: indentation mismatch.
+File "game/options.rpy", line 249: end of line expected.
+    transform t11: tcommon(640)
+                   ^
+
+File "game/options.rpy", line 257: end of line expected.
+    transform s11: sink(640)
+                   ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Tue May  4 19:11:44 2021
+Thu May  6 23:29:51 2021
