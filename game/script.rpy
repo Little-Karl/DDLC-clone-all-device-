@@ -178,3 +178,6 @@ label ch0:
 
 
 return
+
+# test build android date(dd/mm/yy) 8/5/2021 faild on 7.4.4
+# trying 6.99.12

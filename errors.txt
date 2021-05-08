@@ -2,13 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 249: end of line expected.
-    transform t11: tcommon(640)
-                   ^
+File "game/screens.rpy", line 448: u'pagekeys' is not a keyword argument or valid child for the viewport statement.
+    pagekeys True
+            ^
 
-File "game/options.rpy", line 257: end of line expected.
-    transform s11: sink(640)
-                   ^
+File "game/screens.rpy", line 905: u'substitute' is not a keyword argument or valid child for the label statement.
+    substitute False
+              ^
 
-Ren'Py Version: Ren'Py 7.4.4.1439
-Thu May  6 23:29:51 2021
+Ren'Py Version: Ren'Py 6.99.12.4.2187
